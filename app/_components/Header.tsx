@@ -1,15 +1,21 @@
+import { ModeToggle } from "./darkMode/ModeToggle";
 import Logo from "./Logo";
 import Navigation from "./navigation";
+import CTAButton from "./ui/CTAButton";
 
 export function Header() {
   return (
-    <header className="sticky z-100 flex items-center justify-between border-b border-accent-500 px-4 py-3">
+    <header className="sticky z-100 grid grid-cols-6 items-center border-b border-accent-600 px-4 py-3">
       <Logo />
       <Navigation />
-      <div>
-        <button className="rounded-md bg-accent-500 px-4 py-2 text-accent-100 transition-colors hover:bg-accent-600 hover:text-primary-50">
+      <div className="flex items-center gap-4 justify-self-end">
+        <CTAButton className="w-max" variant="secondary">
+          Log In
+        </CTAButton>
+        <CTAButton className="w-max" variant="primary">
           Sign Up
-        </button>
+        </CTAButton>
+        <ModeToggle />
       </div>
     </header>
   );

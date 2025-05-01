@@ -1,38 +1,51 @@
 @import "tailwindcss";
 
-@theme {
-  --color-primary-50: #f0f7ff;
-  --color-primary-100: #e0f2fe;
-  --color-primary-200: #bae6fd;
-  --color-primary-300: #7dd3fc;
-  --color-primary-400: #38bdf8;
-  --color-primary-500: #0ea5e9;
-  --color-primary-600: #0284c7;
-  --color-primary-700: #0369a1;
-  --color-primary-800: #075985;
-  --color-primary-900: #0c4a6e;
-  --color-primary-950: #082f49;
+@custom-variant dark (&:where(.dark, .dark *));
 
-  --color-accent-50: #f0fdf4;
-  --color-accent-100: #dcfce7;
-  --color-accent-200: #bbf7d0;
-  --color-accent-300: #86efac;
-  --color-accent-400: #4ade80;
-  --color-accent-500: #22c55e;
-  --color-accent-600: #16a34a;
-  --color-accent-700: #15803d;
-  --color-accent-800: #166534;
-  --color-accent-900: #14532d;
-  --color-accent-950: #052e16;
+@theme {
+  --color-accent-50: #f0f7ff;
+  --color-accent-100: #e0f2fe;
+  --color-accent-200: #bae6fd;
+  --color-accent-300: #7dd3fc;
+  --color-accent-400: #38bdf8;
+  --color-accent-500: #0ea5e9;
+  --color-accent-600: #0284c7;
+  --color-accent-700: #0369a1;
+  --color-accent-800: #075985;
+  --color-accent-900: #0c4a6e;
+  --color-accent-950: #082f49;
+
+  --color-background-light: oklch(92.9% 0.013 255.508);
+  --color-background-dark: oklch(20.8% 0.042 265.755);
+
+  --color-foreground-light: oklch(27.9% 0.041 260.031);
+  --color-foreground-dark: oklch(92.9% 0.013 255.508);
+
+  --transition-duration: 100ms;
 }
 
 @layer base {
+  :root {
+    --background: var(--color-background-light);
+    --foreground: var(--color-foreground-light);
+  }
+
   html {
     @apply scroll-smooth;
   }
 
   body {
     @apply min-h-screen;
+    background-color: var(--background);
+    color: var(--foreground);
+    transition:
+      background-color var(--transition-duration),
+      color var(--transition-duration);
+  }
+
+  .dark {
+    --background: var(--color-background-dark);
+    --foreground: var(--color-foreground-dark);
   }
 
   button {

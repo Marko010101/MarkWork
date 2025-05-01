@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./_styles/globals.css";
 import { Header } from "./_components/Header";
+import { ThemeProvider } from "./_components/darkMode/themeProvider";
+import "./_styles/globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
   fallback: ["system-ui", "arial"],
 });
@@ -34,12 +35,27 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" className={`${inter.className} antialiased`}>
-      <body className="relative min-h-screen bg-accent-50">
-        <Header />
-        <main>{children}</main>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.className} antialiased`}
+    >
+      <body className="min-h-screen">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          <main>{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );
