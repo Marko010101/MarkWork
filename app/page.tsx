@@ -102,15 +102,15 @@ export default function Home() {
         <div className="flex justify-center gap-10">
           <div className="max-w-xs">
             <p className="mb-4 text-accent-50">
-              "This platform helped me find the perfect freelancer for my
-              project. I highly recommend it!"
+              &quot;This platform helped me find the perfect freelancer for my
+              project. I highly recommend it!&quot;
             </p>
             <p className="font-semibold text-accent-50">Client A</p>
           </div>
           <div className="max-w-xs">
             <p className="mb-4 text-accent-50">
-              "As a freelancer, I found great projects here that helped me grow
-              my portfolio."
+              &quot;As a freelancer, I found great projects here that helped me
+              grow my portfolio.&quot;
             </p>
             <p className="font-semibold text-accent-50">Freelancer B</p>
           </div>

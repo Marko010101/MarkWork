@@ -2,9 +2,9 @@
 
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { JSX, useEffect, useState } from "react";
 
-export function ModeToggle() {
+export function ModeToggle(): JSX.Element {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isDarkModeVisual, setIsDarkModeVisual] = useState(false);
@@ -16,7 +16,7 @@ export function ModeToggle() {
     }
   }, [theme]);
 
-  const handleThemeChange = () => {
+  const handleThemeChange = (): void => {
     const newVisual = !isDarkModeVisual;
     setIsDarkModeVisual(newVisual);
 
@@ -41,7 +41,6 @@ export function ModeToggle() {
     >
       <div className="relative h-full w-full cursor-pointer">
         <Sun
-          // yellow-500
           stroke="oklch(79.5% 0.184 86.047)"
           size={26}
           strokeWidth={1}
@@ -53,7 +52,6 @@ export function ModeToggle() {
           }`}
         />
         <Moon
-          //  gray-500
           stroke="oklch(55.1% 0.027 264.364)"
           fill="oklch(55.1% 0.027 264.364)"
           size={26}
